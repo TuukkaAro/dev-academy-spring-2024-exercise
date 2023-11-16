@@ -6,7 +6,7 @@ type ResponseData = {
 
 const { pool } = require("../../../db");
 
-export async function GET() {
+export async function GET(request: NextRequest, context: any) {
 
     try {
         const stations = await pool.query(

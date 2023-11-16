@@ -6,12 +6,17 @@
 3. On command line under this folder run:
 
 ```
+npm i
+```
+5. Then on command line under this folder run:
+
+```
 docker compose up --build --renew-anon-volumes -d
 ```
 
 Please note that starting the database might take a while.
 
-4. Access the site from http://localhost:3000/
+5. Access the site from http://localhost:3000/
 
 # dev-academy-spring-2024-exercise
 

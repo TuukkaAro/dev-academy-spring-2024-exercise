@@ -11,7 +11,7 @@ interface Station {
 export default function Table() {
     const [stations, setStations] = useState<Station[] | undefined>(undefined);
     useEffect(() => {
-        fetch('api/station')
+        fetch('api/station/all')
             .then((res) => res.json())
             .then((json) => {
                 setStations(json);
