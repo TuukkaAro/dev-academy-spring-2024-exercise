@@ -106,7 +106,7 @@ export default function StationView(props: Readonly<{ stationId: string }>) {
                         >
                             <div className="flex items-center space-x-4">
                                 <div className="space-y-1">
-                                    <p className="text-sm text-gray-500">{Math.floor(data?.durationAverage) + ' min'}</p>
+                                    <p className="text-sm text-gray-500">{Math.floor(data?.durationAverage) + 's'}</p>
                                 </div>
                             </div>
                         </div>
