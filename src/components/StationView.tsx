@@ -1,36 +1,45 @@
-//"use client"
+'use client'
 
-import * as React from 'react';
+import { useState, useEffect } from 'react'
 
 interface Station {
     [key: string]: any
 }
 
-export default function StationView() {
-    //const [stations, setStations] = React.useStte<Station[] | undefined>(undefined);
-    const { pool } = require("../../db");
-    var data = undefined;
-    console.log('moi',);
+export default function StationView(props: Readonly<{ stationId: string }>) {
+    const [stations, setStations] = useState<Station[] | undefined>(undefined);
 
-    async function getData() {
-        const res = await pool.query(
-            'SELECT * FROM station',
-        );
-        //setStations(res.rows);
-        data = res;
-        return res;
-    }
-    getData()
-    console.log('res', data);
+    useEffect(() => {
+        fetch('api/station/' + props.stationId)
+            .then((res) => res.json())
+            .then((json) => {
+                console.log('arvot', json);
+                setStations(json);
+            });
+    }, []);
 
-    if (data) {
-        return (
-            <React.Fragment>
-            </React.Fragment>
-        )
-    }
     return (
-        <React.Fragment>
-        </React.Fragment>
+        <div className="bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-xl mx-auto w-full">
+            <div className="flex justify-between items-center mb-4">
+                <div className="space-y-1">
+                    <h2 className="text-xl font-semibold">Station {props.stationId}</h2>
+                </div>
+                <div className="divide-y divide-gray-900/5">
+                    {stations?.map((station) => (
+                        <div
+                            key={station.id}
+                            className="flex items-center justify-between py-3"
+                        >
+                            <div className="flex items-center space-x-4">
+                                <div className="space-y-1">
+                                    <p className="font-medium leading-none">{station.station_name}</p>
+                                    <p className="text-sm text-gray-500">{station.station_address}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+         </div>
     )
 }
