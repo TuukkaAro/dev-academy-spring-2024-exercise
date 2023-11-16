@@ -7,13 +7,18 @@ type ResponseData = {
 const { pool } = require("../../../db");
 
 export async function GET() {
-    let query;
+
     try {
-        query = await pool.query(
+        const stations = await pool.query(
             'SELECT * FROM station',
         );
+        return NextResponse.json(stations.rows);
     } catch (error) {
-        return NextResponse.json( [] );
+        console.error(error);
+        return NextResponse.json( [ {
+            station_name: 'failed to load',
+            station_address: '',
+            error: error
+        } ] );
     }
-    return NextResponse.json(query.rows);
 }
