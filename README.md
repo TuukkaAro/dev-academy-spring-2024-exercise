@@ -1,6 +1,4 @@
 # Tuukka's instructions
-
-# Instructions for running the database
 1. Install Docker Desktop on your computer (https://docs.docker.com/desktop/)
 2. Node 20 is also required.
 3. Clone this repository
