@@ -2,8 +2,9 @@
 
 # Instructions for running the database
 1. Install Docker Desktop on your computer (https://docs.docker.com/desktop/)
-2. Clone this repository
-3. On command line under this folder run:
+2. Node 20 is also required.
+3. Clone this repository
+4. On command line under this folder run:
 
 ```
 npm i
@@ -16,7 +17,7 @@ docker compose up --build --renew-anon-volumes -d
 
 Please note that starting the database might take a while.
 
-5. Access the site from http://localhost:3000/
+6. Access the site from http://localhost:3000/
 
 # dev-academy-spring-2024-exercise
 
