@@ -15,7 +15,7 @@ npm i
 docker compose up --build --renew-anon-volumes -d
 ```
 
-Please note that starting the database might take a while.
+Please note that starting the database might take a while. If no data shows up in the UI then this is almost certainly the reason.
 
 6. Access the site from http://localhost:3000/
 
