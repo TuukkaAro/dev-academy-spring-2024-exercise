@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import StationView from '../../components/stationView'
+import StationView from '../../components/StationView'
 import TablePlaceholder from '../../components/table-placeholder'
 import ExpandingArrow from '../../components/expanding-arrow'
 
