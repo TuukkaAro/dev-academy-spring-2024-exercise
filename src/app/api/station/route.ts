@@ -7,8 +7,13 @@ type ResponseData = {
 const { pool } = require("../../../db");
 
 export async function GET() {
-    const query = await pool.query(
-        'SELECT * FROM station',
-    );
+    let query;
+    try {
+        query = await pool.query(
+            'SELECT * FROM station',
+        );
+    } catch (error) {
+        return NextResponse.json( [] );
+    }
     return NextResponse.json(query.rows);
 }

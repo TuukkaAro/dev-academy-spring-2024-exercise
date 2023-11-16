@@ -17,10 +17,10 @@ export async function GET(request: NextRequest, context: any) {
     const returns = await pool.query(
         'SELECT * FROM journey WHERE return_station_id = ' + stations.rows[0].id,
     );
-    let distanceSum: number = departures.rows.map(a => a.distance).reduce(function (a, b) {
+    let distanceSum: number = departures.rows.map((a: { distance: any; }) => a.distance).reduce(function (a: any, b: any) {
         return a + b;
     });
-    let durationSum: number = departures.rows.map(a => a.duration).reduce(function (a, b) {
+    let durationSum: number = departures.rows.map((a: { duration: any; }) => a.duration).reduce(function (a: any, b: any) {
         return a + b;
     });
     return NextResponse.json({
@@ -29,6 +29,5 @@ export async function GET(request: NextRequest, context: any) {
         distanceAverage: distanceSum / departures.rows.length,
         durationAverage: durationSum / departures.rows.length,
         returnsTotal: returns.rows.length,
-
     });
 }
