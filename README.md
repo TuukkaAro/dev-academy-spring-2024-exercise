@@ -1,3 +1,18 @@
+# Tuukka's instructions
+
+# Instructions for running the database
+1. Install Docker Desktop on your computer (https://docs.docker.com/desktop/)
+2. Clone this repository
+3. On command line under this folder run:
+
+```
+docker compose up --build --renew-anon-volumes -d
+```
+
+Please note that starting the database might take a while.
+
+4. Access the site from http://localhost:3000/
+
 # dev-academy-spring-2024-exercise
 
 This is the pre-assignment for Solita Dev Academy Finland January 2024. But if you’re here just purely out of curiosity, feel free to snatch the idea and make your own city bike app just for the fun of it!
